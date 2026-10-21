@@ -1,26 +1,84 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --font-display: var(--font-display), Georgia, serif;
+  --font-arabic: var(--font-arabic), serif;
+  --font-sans: var(--font-sans), system-ui, sans-serif;
+
+  /* Alhambra Sanctuary Palette */
+  --color-parchment: #FAF7F2;
+  --color-alabaster: #F1EAE0;
+  --color-sand: #E5DDD0;
+  --color-emerald-imperial: #164A3B;
+  --color-jade-luminous: #246A56;
+  --color-gold-sultani: #C48F3F;
+  --color-terracotta: #B85D43;
+  --color-ink: #111A17;
+  --color-sage: #3A4B44;
+
+  /* Nightly Masjid Mode Tokens */
+  --color-obsidian: #0E1715;
+  --color-masjid-card: #172622;
+  --color-mint-night: #58C4A3;
+  --color-cream-night: #F5F0E8;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Tactile Subtle Paper Grain Overlay */
+.bg-parchment-grain {
+  background-image: radial-gradient(
+      rgba(196, 143, 63, 0.07) 1px,
+      transparent 0
+    ),
+    radial-gradient(rgba(22, 74, 59, 0.05) 1px, transparent 0);
+  background-size: 32px 32px;
+  background-position: 0 0, 16px 16px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Signature Emerald Glassmorphism Card */
+.emerald-glass-card {
+  background: linear-gradient(
+    145deg,
+    rgba(22, 74, 59, 0.94) 0%,
+    rgba(14, 23, 21, 0.97) 100%
+  );
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(196, 143, 63, 0.35);
+  box-shadow:
+    0 24px 60px -15px rgba(14, 23, 21, 0.45),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.22),
+    inset 0 -1px 1px 0 rgba(196, 143, 63, 0.2);
+}
+
+/* Shimmering Sultani Gold Text */
+@keyframes goldShimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.gold-shimmer-text {
+  background: linear-gradient(
+    90deg,
+    #C48F3F 0%,
+    #F3D39C 35%,
+    #C48F3F 55%,
+    #9C6B23 80%,
+    #C48F3F 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: goldShimmer 7s linear infinite;
+}
+
+/* Custom Mihrab Pointed Arch Mask */
+.mihrab-arch-card {
+  border-top-left-radius: 9999px;
+  border-top-right-radius: 9999px;
+  border-bottom-left-radius: 28px;
+  border-bottom-right-radius: 28px;
 }
